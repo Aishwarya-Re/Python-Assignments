@@ -1,0 +1,24 @@
+{% extends 'FIRSTAPPLICATION/base.html' %}
+{% block content %}
+    <h1 class="mt-2">
+    Users registered with Us:
+    </h1>
+    <hr class="mt-0 mb-4">
+    <table class="table">
+        <thead>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Action</td>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td><a href="/{{ user.id }}">Show</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'FIRSTAPPLICATION/base.html' %}
+{% block content %}
+    {% if name %}
+        <h1 class="mt-2">
+            {{ name }}
+        </h1>
+        
+        {% if contacts %}
+            <hr class="mt-0 mb-4">
+            <h2 class="mt-2">
+                Contact
+            </h2>
+            <hr class="mt-0 mb-4">
+            {% for contact in contacts %}
+            <label for="{{contact_prop.name}}" class="col-sm-2 col-form-label">{{ contact.contact_type }}</label>
+            <div class="col-sm-10">
+                
+                {{ contact.contact_at}}
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        
+        {% if contacts %}
+            <hr class="mt-0 mb-4">
+            <h2 class="mt-2">
+                Address
+            </h2>
+            <hr class="mt-0 mb-4">
+            {% for address in addresses %}
+            <label for="{{contact_prop.name}}" class="col-sm-2 col-form-label">{{ address.address_type }}</label>
+            <div class="col-sm-10">
+                {{ address.house_number }}<br>
+                {{ address.address_line_1 }}<br>
+                {{ address.address_line_2 }}<br>
+                {{ address.city }} &nbsp; - &nbsp; {{ address.zipcode}}<br>
+                {{ address.country }}<br>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+    {% endif %}
+{% endblock %}
